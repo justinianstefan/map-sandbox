@@ -14,7 +14,12 @@ export class MapService {
     }
 
     loadMarkers() {
-        return this.http.get("../assets/stations.json")
+        return this.http.get("../assets/features.geojson")
+            .map(res => res.json())
+    }
+
+    loadEarthquakes() {
+        return this.http.get("../assets/earthquakes.geojson")
             .map(res => res.json())
     }
 }
